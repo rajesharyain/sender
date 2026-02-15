@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -78,10 +79,11 @@ fun ConfirmEmailScreen(
             ) {
                 Text("Continue")
             }
-            Button(
+            FilledTonalButton(
                 onClick = onCancel,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(56.dp)
                     .testTag(ConfirmEmailTestTags.CANCEL)
             ) {
                 Text("Cancel")

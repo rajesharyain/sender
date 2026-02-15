@@ -78,21 +78,25 @@ fun ChooseSendMethodScreen(
                             Toast.makeText(context, "Could not open email app", Toast.LENGTH_SHORT).show()
                         }
                     },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp)
                 ) {
                     Text("Use My Email App")
                 }
             }
             Button(
                 onClick = onSendViaApp,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
             ) {
                 Text(if (hasEmailApp) "Send via App instead" else "Send via App")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = "To: $email • ${files.size} file(s)",
-                style = MaterialTheme.typography.bodySmall,
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
