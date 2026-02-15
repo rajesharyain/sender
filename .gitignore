@@ -1,0 +1,41 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Gradle
+.gradle/
+build/
+
+# Local configuration (SDK path - machine specific)
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.cursor/
+
+# Android Studio
+captures/
+*.hprof
+.externalNativeBuild/
+.cxx/
+*.log
+
+# ProGuard / R8
+proguard/
+*.mapping
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Keystore / signing (never commit)
+*.jks
+*.keystore
+gradle-8.2-tmp/
