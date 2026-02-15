@@ -25,7 +25,8 @@ object HomeScreenTestTags {
 @Composable
 fun HomeScreen(
     onGenerateQr: () -> Unit,
-    onScanQr: () -> Unit
+    onScanQr: () -> Unit,
+    onHistory: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -65,6 +66,13 @@ fun HomeScreen(
                 .testTag(HomeScreenTestTags.BUTTON_SCAN_QR)
         ) {
             Text("Scan QR & Send Documents")
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(
+            onClick = onHistory,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Send history")
         }
     }
 }

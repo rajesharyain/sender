@@ -119,6 +119,25 @@ APK output: `app/build/outputs/apk/debug/app-debug.apk`.
 2. **Generate My QR** – Tap → “QR Owner (Phase 2)” screen; tap **Back** → returns to Home.
 3. **Scan QR & Send Documents** – Tap → “Scan QR (Phase 3)” screen; tap **Back** → returns to Home.
 
+### Phase 10 – History and reusable QR
+
+- **Send history:** From Home, tap **Send history** to see a list of recent in-app sends (recipient, file count, time, sender). Use **Clear** in the app bar to remove all. History is stored on the device and kept across restarts (up to 100 entries).
+- **Reusable QR:** On the “Your QR Code” screen, a line explains that the QR can be scanned multiple times by anyone to send documents to you.
+
+### Phase 8/9 – Progress, success, and error handling
+
+- **Sending:** Progress screen shows “Sending your documents…” with a spinner; on success you are taken to the success screen; on error you see a short message with **Retry** and **Back**.
+- **Errors:** Messages are user-friendly (e.g. “No internet connection…”, “Server error. Please try again later.”, “Could not read a file…”). Raw exceptions are not shown.
+- **Camera:** If camera permission is denied, you see “Grant permission”, “Open Settings” (to open app settings), and “Back”. After enabling permission in Settings and returning, the scan screen updates within a second.
+
+### Phase 7 – In-app send API
+
+When the user chooses **Send via App** (Sender info → Send via App), the app sends a multipart **POST** to your backend at the URL in **BuildConfig.SEND_EMAIL_BASE_URL**. To point the app at your server:
+
+- In **`app/build.gradle.kts`**, in `defaultConfig`, set:
+  - `buildConfigField("String", "SEND_EMAIL_BASE_URL", "\"https://your-server.com/api/\"")`
+- The endpoint is **POST `send-email`** with multipart fields: `to`, `subject`, `senderName`, and `files` (one or more file parts). Rebuild the app after changing the URL.
+
 ---
 
 ## 4. Test summary

@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.qrmailer.ui.history.SendHistoryScreen
 import com.qrmailer.ui.home.HomeScreen
 import com.qrmailer.ui.qrOwner.EnterEmailScreen
 import com.qrmailer.ui.qrOwner.QrCodeDisplayScreen
@@ -35,6 +36,7 @@ object Routes {
     const val SENDER_INFO = "sender_info"
     const val SENDING = "sending"
     const val SEND_SUCCESS = "send_success"
+    const val HISTORY = "history"
 
     fun qrOwnerDisplay(email: String): String =
         "qr_owner_display/${URLEncoder.encode(email, StandardCharsets.UTF_8.toString())}"
@@ -59,8 +61,12 @@ fun QRMailerNavGraph(
         composable(Routes.HOME) {
             HomeScreen(
                 onGenerateQr = { navController.navigate(Routes.QR_OWNER_EMAIL) },
-                onScanQr = { navController.navigate(Routes.QR_SCAN) }
+                onScanQr = { navController.navigate(Routes.QR_SCAN) },
+                onHistory = { navController.navigate(Routes.HISTORY) }
             )
+        }
+        composable(Routes.HISTORY) {
+            SendHistoryScreen(onBack = { navController.popBackStack() })
         }
         composable(Routes.QR_OWNER_EMAIL) {
             EnterEmailScreen(

@@ -30,7 +30,7 @@ class SendingViewModel(
         val senderName = SendSessionState.senderName.ifEmpty { "Someone" }
         val files = SendSessionState.selectedFiles
         if (to.isBlank() || files.isEmpty()) {
-            _state.value = SendingUiState.Error("Missing recipient or files")
+            _state.value = SendingUiState.Error("Recipient and at least one file are required.")
             return
         }
         _state.value = SendingUiState.Loading

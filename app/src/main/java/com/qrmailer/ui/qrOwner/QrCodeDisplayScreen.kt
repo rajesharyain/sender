@@ -84,6 +84,13 @@ fun QrCodeDisplayScreen(
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
             )
+            Text(
+                text = "This QR can be scanned multiple times by anyone to send documents to you.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
             Spacer(modifier = Modifier.height(8.dp))
             Button(
                 onClick = { downloadQr(context, qrBitmap, email) },

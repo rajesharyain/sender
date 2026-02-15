@@ -24,10 +24,6 @@ object SendSessionState {
         senderName = ""
     }
 
-    fun setSenderName(name: String) {
-        senderName = name
-    }
-
     fun clear() {
         recipientEmail = ""
         selectedFiles = emptyList()

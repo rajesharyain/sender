@@ -34,7 +34,7 @@ fun SenderInfoScreen(
     var senderName by remember { mutableStateOf(SendSessionState.senderName.ifEmpty { "" }) }
 
     fun submit() {
-        SendSessionState.setSenderName(senderName.trim())
+        SendSessionState.senderName = senderName.trim()
         onSend()
     }
 

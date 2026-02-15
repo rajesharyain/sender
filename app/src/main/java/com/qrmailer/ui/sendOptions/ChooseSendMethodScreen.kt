@@ -71,7 +71,7 @@ fun ChooseSendMethodScreen(
             if (hasEmailApp) {
                 Button(
                     onClick = {
-                        val intent = buildEmailIntent(context, email, subject, files)
+                        val intent = buildEmailIntent(email, subject, files)
                         try {
                             context.startActivity(Intent.createChooser(intent, "Send with"))
                         } catch (e: Exception) {
@@ -104,7 +104,6 @@ fun ChooseSendMethodScreen(
  * Grants read permission for content URIs so the email app can access files.
  */
 private fun buildEmailIntent(
-    context: android.content.Context,
     to: String,
     subject: String,
     files: List<com.qrmailer.data.models.SelectedFile>
